@@ -27,7 +27,7 @@ Route::get('fire', function () {
     event(new App\Events\BroadTest());
     return "event fired";
 });
-Route::group(['middleware' => 'web'],function (){
+Route::group(['middleware' => 'web:cors'],function (){
     Route::get('username', 'UserController@checkUsername');
     Route::get('phone', 'UserController@checkPhone');
     Route::get('verify', 'AuthController@getVerify');
