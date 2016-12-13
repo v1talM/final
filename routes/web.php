@@ -16,3 +16,25 @@ Route::get('/', function () {
 });
 
 Route::get('/oauth/callback', 'OauthController@oauth');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');
+
+
+
+Route::get('fire', function () {
+    // this fires the event
+    event(new App\Events\BroadTest());
+    return "event fired";
+});
+Route::group(['middleware' => 'web'],function (){
+    Route::get('username', 'UserController@checkUsername');
+    Route::get('phone', 'UserController@checkPhone');
+    Route::get('verify', 'AuthController@getVerify');
+});
+
+
+Route::get('test', function () {
+    // this checks for the event
+    return view('home');
+});

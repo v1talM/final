@@ -7,6 +7,7 @@
 
 require('./bootstrap');
 
+import Echo from "laravel-echo"
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -14,6 +15,11 @@ require('./bootstrap');
  */
 
 Vue.component('example', require('./components/Example.vue'));
+window.Echo = new Echo({
+    broadcaster: 'socket.io',
+    host: 'http://final.dev:6001'
+});
+
 
 const app = new Vue({
     el: '#app'

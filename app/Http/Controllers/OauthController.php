@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
@@ -26,9 +27,9 @@ class OauthController extends Controller
             $response = $this->http->post('http://final.dev/oauth/token', [
                 'form_params' => [
                     'grant_type' => 'password',
-                    'client_id' => 3,
+                    'client_id' => 2,
                     //本地
-                    'client_secret' => 'b3IVBQcHpSDPbJKgzThKjGX1orlcniD7aNfaen3I',
+                    'client_secret' => 'ibVPr8njCDJA989NGrShvcdRUFuvDtFRgmjk5XwX',
                     //服务器上
                     //'client_secret' => 'W1GsIEpXqRbYn2ZrcT8hsQt0rCYFhR8lwPagR5Uf',
                     'username' => $request->input('username'),
